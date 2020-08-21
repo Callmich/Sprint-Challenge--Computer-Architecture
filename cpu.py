@@ -185,7 +185,7 @@ class CPU:
 
 
             elif ir == JNE:
-                if self.FL != 1:
+                if self.FL & 0b00000001 == 0:
                     self.pc = self.reg[operand_a]
                     continue
             
