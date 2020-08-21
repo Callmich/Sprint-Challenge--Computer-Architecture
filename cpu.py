@@ -120,14 +120,12 @@ class CPU:
             ir = self.ram_read(self.pc)
             operand_a = self.ram_read(self.pc + 1)
             operand_b = self.ram_read(self.pc + 2)
-            print()
-            print(f'Reg 0: {self.reg[0]}')
-            print(f'Reg 1: {self.reg[1]}')
-            print(f'Reg 2: {self.reg[2]}')
-            # print(f'sp: {self.reg[7]}')
-            # print(f'data: {self.ram[self.reg[7]]}')
-            print(f'FLAG: {self.FL}')
-            print()
+            # print()
+            # print(f'Reg 0: {self.reg[0]}')
+            # print(f'Reg 1: {self.reg[1]}')
+            # print(f'Reg 2: {self.reg[2]}')
+            # print(f'FLAG: {self.FL}')
+            # print()
             # print(ir)
 
             if ir == LDI:
@@ -174,7 +172,16 @@ class CPU:
                 self.pc = self.reg[operand_a]
                 continue
 
-            
+            elif ir == JEQ:
+                if self.FL == 1:
+                    self.pc = self.reg[operand_a]
+                    continue
+
+
+            elif ir == JNE:
+                if self.FL != 1:
+                    self.pc = self.reg[operand_a]
+                    continue
             
             else:
                 print('Not working')
