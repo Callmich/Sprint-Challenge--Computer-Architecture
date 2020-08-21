@@ -16,6 +16,7 @@ JMP = 0b01010100
 JEQ = 0b01010101
 JNE = 0b01010110
 AND = 0b10101000
+OR = 0b10101010
 
 sp = 7
 
@@ -92,6 +93,8 @@ class CPU:
                 self.FL = 0b00000010
         elif op == AND:
             self.reg[reg_a] = self.reg[reg_a] & self.reg[reg_b]
+        elif op == OR:
+            self.reg[reg_a] = self.reg[reg_a] | self.reg[reg_b]
         else:
             raise Exception("Unsupported ALU operation")
 
@@ -187,6 +190,9 @@ class CPU:
                     continue
             
             elif ir == AND:
+                self.alu(ir, operand_a, operand_b)
+            
+            elif ir == OR:
                 self.alu(ir, operand_a, operand_b)
             
             else:
