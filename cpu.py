@@ -18,6 +18,7 @@ JNE = 0b01010110
 AND = 0b10101000
 OR = 0b10101010
 XOR = 0b10101011
+NOT = 0b01101001
 
 sp = 7
 
@@ -96,6 +97,8 @@ class CPU:
             self.reg[reg_a] = self.reg[reg_a] & self.reg[reg_b]
         elif op == OR:
             self.reg[reg_a] = self.reg[reg_a] | self.reg[reg_b]
+        elif op == NOT:
+            self.reg[reg_a] = ~ self.reg[reg_a]
         elif op == XOR:
             self.reg[reg_a] = self.reg[reg_a] ^ self.reg[reg_b]
         else:
@@ -199,6 +202,9 @@ class CPU:
                 self.alu(ir, operand_a, operand_b)
             
             elif ir == XOR:
+                self.alu(ir, operand_a, operand_b)
+            
+            elif ir == NOT:
                 self.alu(ir, operand_a, operand_b)
             
             else:
