@@ -11,6 +11,10 @@ PUSH = 0b01000101
 POP = 0b01000110
 CALL = 0b01010000
 RET = 0b00010001
+CMP = 0b10100111
+JMP = 0b01010100
+JEQ = 0b01010101
+JNE = 0b01010110
 
 sp = 7
 
@@ -24,6 +28,7 @@ class CPU:
         self.reg = [0] * 8
         self.pc = 0
         self.reg[sp] = 0xF4
+        self.FL = 0b00000000
         # need to set up functionality needs
 
     def ram_read(self, ram_address):
