@@ -10,6 +10,8 @@ Your finished project must include all of the following requirements:
             # E Equal: during a CMP, set to 1 if registerA is equal to registerB, zero otherwise.
     # CMP 0b10100111 handled in the ALU  
         # Compare the two registers - so this will take 3 instructions (code and 2 registers)
+
+        # Reset FL to 0
             # If they are equal, set the Equal E flag to 1, otherwise set it to 0.
             # If registerA is less than registerB, set the Less-than L flag to 1, otherwise set it to 0.
             # If registerA is greater than registerB, set the Greater-than G flag to 1, otherwise set it to 0.

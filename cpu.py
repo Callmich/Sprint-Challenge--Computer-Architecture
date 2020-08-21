@@ -170,6 +170,12 @@ class CPU:
                 self.reg[sp] += 1
                 continue
             
+            elif ir == JMP:
+                self.pc = self.reg[operand_a]
+                continue
+
+            
+            
             else:
                 print('Not working')
                 running = False
