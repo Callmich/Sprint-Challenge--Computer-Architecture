@@ -29,6 +29,7 @@ class CPU:
         self.pc = 0
         self.reg[sp] = 0xF4
         self.FL = 0b00000000
+        # FLAG = 0b00000LGE
         # need to set up functionality needs
 
     def ram_read(self, ram_address):
@@ -79,6 +80,15 @@ class CPU:
         #elif op == "SUB": etc
         elif op == MUL:
             self.reg[reg_a] *= self.reg[reg_b]
+        elif op == CMP:
+            self.FL = 0b00000000
+            # FLAG = 0b00000LGE
+            if self.reg[reg_a] == self.reg[reg_b]:
+                self.FL = 0b00000001
+            elif self.reg[reg_a] < self.reg[reg_b]:
+                self.FL = 0b00000100
+            elif self.reg[reg_a] > self.reg[reg_b]:
+                self.FL = 0b00000010
         else:
             raise Exception("Unsupported ALU operation")
 
