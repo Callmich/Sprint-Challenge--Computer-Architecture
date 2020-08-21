@@ -126,7 +126,7 @@ class CPU:
             # print(f'Reg 2: {self.reg[2]}')
             # print(f'FLAG: {self.FL}')
             # print()
-            # print(ir)
+            # print(ir) 
 
             if ir == LDI:
                 self.reg[operand_a] = operand_b
